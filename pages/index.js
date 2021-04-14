@@ -24,9 +24,9 @@ export default function Home() {
           <div className="home__cta_button">
             <img src="/vectors/create_event.svg" alt="Create event" />
             <h2>Create an event</h2>
-            <p>Setup Quadratic Voting for your event.</p>
+            <p>Set up Quadratic Voting for your event.</p>
             <Link href="/create">
-              <a>Setup Event</a>
+              <a>Set Up Event</a>
             </Link>
           </div>
           <div className="home__cta_button">
@@ -46,75 +46,65 @@ export default function Home() {
             padding: 50px 20px 0px 20px;
             margin: 0px auto;
           }
-
           .home__content > h1 {
             font-size: 40px;
-            color: #0f0857;
+            color: #000;
             margin: 0px;
           }
-
           .home__content > h2 {
-            color: #00d182;
+            color: #000;
             margin-block-start: 0px;
           }
-
           .home__content > h2:nth-of-type(2) {
-            color: #0f0857;
+            color: #000;
             margin-block-end: 0px;
             margin-block-start: 60px;
           }
-
           .home__content > p {
             font-size: 18px;
             line-height: 150%;
-            color: rgb(107, 114, 128);
+            color: #80806b;
           }
-
           .home__cta {
             padding-top: 20px;
           }
-
           .home__cta_button {
             display: inline-block;
             max-width: 270px;
             width: calc(100% - 70px);
             background-color: #fff;
             margin: 20px;
-            border-radius: 8px;
-            border: 1px solid #e7eaf3;
-            box-shadow: 0 0 35px rgba(127, 150, 174, 0.125);
+            border-radius: 16px;
+            border: 1px solid #f1f2e5;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.125);
             padding: 15px;
             vertical-align: top;
           }
-
           .home__cta_button > img {
             height: 90px;
             margin-top: 15px;
           }
-
           .home__cta_button > h2 {
-            color: #0f0857;
+            color: #000;
             margin-block-end: 0px;
           }
-
           .home__cta_button > p {
-            color: #587299;
+            color: #80806b;
+            font-size: 15px;
             margin-block-start: 5px;
             margin-block-end: 40px;
           }
-
           .home__cta_button > a {
             text-decoration: none;
             padding: 12px 0px;
             width: 100%;
             display: inline-block;
-            border-radius: 5px;
-            background-color: #0f0857;
-            color: #fff;
+            border-radius: 16px;
+            background-color: #000;
+            color: #edff38;
             font-size: 18px;
             transition: 50ms ease-in-out;
           }
-
           .home__cta_button > a:hover {
             opacity: 0.8;
           }
