@@ -134,7 +134,7 @@ export default function Layout(props) {
         <Link href="/">
           <a>
             <img
-              src="/logo.svg"
+              src="/logo-yellow.svg"
               alt="RadicalxChange logo"
             />
           </a>
@@ -194,7 +194,7 @@ export default function Layout(props) {
           padding: 0px 20px;
           width: calc(100% - 40px);
           background-position: center top;
-          background-color: #fefff3;
+          background-color: #000;
         }
         .layout__header > a {
           text-decoration: none;
