@@ -573,7 +573,7 @@ function Vote({ query }) {
         }
 
         .event__option_item_desc {
-          white-space: pre;
+          white-space: pre-wrap;
         }
 
         .event__option_item_vote {
