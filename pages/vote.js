@@ -6,6 +6,7 @@ import Layout from "components/layout"; // Layout wrapper
 import { useRouter } from "next/router"; // Router for URL params
 import { useState, useEffect } from "react"; // State management
 import Navigation from "components/navigation"; // Navigation component
+import RemainingCredits from "components/credits";
 
 function Vote({ query }) {
   const router = useRouter(); // Hook into router
@@ -145,7 +146,6 @@ function Vote({ query }) {
     const description = document.getElementById("description-container-" + key);
     const link = document.getElementById("link-container-" + key);
     const toggleButton = document.getElementById("toggle-button-" + key);
-    console.log(toggleButton)
     if (toggleButton.alt === "down arrow") {
       toggleButton.src = "/vectors/up_arrow.svg";
       toggleButton.alt = "up arrow";
