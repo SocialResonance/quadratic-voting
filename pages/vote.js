@@ -183,6 +183,7 @@ function Vote({ query }) {
       <div className="vote">
         {/* Loading state check */}
         {!loading ? (
+          <>
           <div className="vote__info">
             {/* General voting header */}
             <div className="vote__info_heading">
@@ -263,6 +264,12 @@ function Vote({ query }) {
                       ) : null}
                     </div>
                   </div>
+                </div>
+                <div className="button-container">
+                  <RemainingCredits
+                    creditBalance={data.event_data.credits_per_voter}
+                    creditsRemaining={credits}
+                  />
                 </div>
 
                 {/* Voteable options */}
@@ -396,6 +403,7 @@ function Vote({ query }) {
               </>
             ) : null}
           </div>
+          </>
         ) : (
           // If loading, show global loading state
           <div className="vote__loading">
@@ -418,6 +426,50 @@ function Vote({ query }) {
           padding: 0px 20px;
           display: inline-block;
           position: relative;
+        }
+
+        .button-container {
+          padding: 1vw 2vw;
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          background: white;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .vote {
+            display: grid;
+            grid-template-columns: auto 20vw;
+          }
+
+          .vote__info {
+            grid-column: 1;
+            margin: 50px 0 50px auto;
+          }
+
+          .button-container {
+            grid-column: 2;
+            position: fixed;
+            background: none;
+            padding: auto auto;
+            top: auto;
+            right: 0;
+            bottom: 5vh;
+            left: auto;
+            z-index: auto;
+          }
+        }
+
+        @media only screen and (min-width: 1150px) {
+          .vote {
+            display: block;
+          }
+
+          .vote__info {
+            margin: 50px auto;
+          }
         }
 
         .event__summary {

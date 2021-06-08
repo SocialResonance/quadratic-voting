@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 // import "./CanvasBlocks.scss";
 
 function CanvasBlocks(props) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef(null);
   // the blocks are drawn in "stacks" of 25
   const numStacks = Math.ceil(props.creditBalance / 25);
   // set the size of the gap between stacks here
@@ -37,12 +37,12 @@ function CanvasBlocks(props) {
     canvas.height = canvas.clientHeight;
     var w = canvas.width, h = canvas.height;
 
+    // set the scale of the context
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
     // scale the canvas by window.devicePixelRatio
     canvas.width = w*window.devicePixelRatio;
     canvas.height = h*window.devicePixelRatio;
-
-    // set the scale of the context
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
   };
 
   // draw
@@ -127,7 +127,43 @@ function CanvasBlocks(props) {
   }
 
   return (
-    <canvas id="remaining-credits-blocks" ref={canvasRef} />
+    <div className="canvas-wrapper">
+      <h3>Available Voice Credits</h3>
+      <canvas id="remaining-credits-blocks" ref={canvasRef} />
+      <p>
+        {props.creditsRemaining}/{props.creditBalance} voice credits remaining
+      </p>
+
+      {/* Scoped styling */}
+      <style jsx>{`
+        .canvas-wrapper {
+          position: relative;
+          margin: 1vw;
+        }
+
+        #remaining-credits-blocks {
+          padding: .5rem !important;
+          border: none !important;
+          max-height: 10vh;
+          width: 100%;
+          object-fit: contain;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .canvas-wrapper {
+            border-bottom: 1px solid black;
+            margin-bottom: 1rem;
+            width: 17vw;
+          }
+
+          #remaining-credits-blocks {
+            max-height: none;
+            max-width: 80%;
+            height: 40vh;
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 
