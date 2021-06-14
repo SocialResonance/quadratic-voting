@@ -7,6 +7,7 @@ import { useRouter } from "next/router"; // Router for URL params
 import { useState, useEffect } from "react"; // State management
 import Navigation from "components/navigation"; // Navigation component
 import RemainingCredits from "components/credits";
+import ProposalBlocks from "components/proposalBlocks";
 
 function Vote({ query }) {
   const router = useRouter(); // Hook into router
@@ -107,7 +108,7 @@ function Vote({ query }) {
       return current <= 0 ? true : canOccur;
     } else {
       // Or check for inverse state when subtracting
-      return (current >= 0 ? true : canOccur) && (current !== 0);
+      return current >= 0 ? true : canOccur;
     }
   };
 
@@ -308,19 +309,11 @@ function Vote({ query }) {
                               </div>
                             ) : null}
                           </div>
+                          <ProposalBlocks
+                            cost={Math.pow(votes[i], 2)}
+                          />
                           <div className="event__option_item_vote">
                             <label>Votes</label>
-                            {data ? (
-                              <>
-                              {(moment() > moment(data.event_data.end_event_date)) ? (
-                                <></>
-                              ) : (
-                                <span className="item__vote_credits">
-                                  Remaining credits: {credits}
-                                </span>
-                              )}
-                              </>
-                            ) : null}
                             <input type="number" value={votes[i]} disabled />
                             <div className="item__vote_buttons">
                               {data ? (

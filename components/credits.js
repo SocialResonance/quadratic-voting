@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 
-// import "./CanvasBlocks.scss";
-
 function CanvasBlocks(props) {
   const canvasRef = useRef(null);
   // the blocks are drawn in "stacks" of 25
