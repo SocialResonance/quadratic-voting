@@ -149,7 +149,6 @@ function CanvasBlocks(props) {
 
         @media only screen and (min-width: 768px) {
           .canvas-wrapper {
-            border-bottom: 1px solid black;
             margin-bottom: 1rem;
             width: 17vw;
           }
