@@ -52,4 +52,4 @@ docker run -d --env DATABASE_URL=postgresql://__USER__:__PASSWORD__@__HOST__/__D
 
 ## License
 
-[GNU Affero General Public License v3.0](https://github.com/RadicalxChange/quadratic-voting/blob/master/LICENSE)
+[CC BY-NC 2.0](https://github.com/RadicalxChange/quadratic-voting/blob/master/LICENSE)
