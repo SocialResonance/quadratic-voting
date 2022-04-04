@@ -50,7 +50,7 @@ export default function Create() {
   const setNumVoters = (value) => {
     setGlobalSettings({
       ...globalSettings, // Current settings
-      num_voters: Math.max(1, Math.min(250, Number(Math.round(value)))), // Number between 1 - 250 and not decimal
+      num_voters: Math.max(1, Math.min(1000, Number(Math.round(value)))), // Number between 1 - 250 and not decimal
     });
   };
 
@@ -208,7 +208,7 @@ export default function Create() {
           {/* Number of voters selection */}
           <div className="create__settings_section">
             <label htmlFor="num_voters">Number of voters</label>
-            <p>How many voting links would you like to generate? (Max: 250)</p>
+            <p>How many voting links would you like to generate?</p>
             <input
               type="number"
               id="num_voters"
