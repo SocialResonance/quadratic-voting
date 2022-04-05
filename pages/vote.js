@@ -409,6 +409,9 @@ function Vote({ query }) {
 
       {/* Component scoped CSS */}
       <style jsx>{`
+        button {
+          touch-action: manipulation;
+        }
         .vote {
           text-align: center;
         }
