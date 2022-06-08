@@ -256,40 +256,6 @@ function Vote({ query }) {
                   <></>
                 ) : (
                   <>
-                  {/* General information */}
-                  <div className="event__options">
-                    <h2>General Information</h2>
-                    <div className="divider" />
-                    <div className="event__option_item">
-                      <div>
-                        <label>Voter Name</label>
-                        {data ? (
-                          <>
-                          {(moment() > moment(data.event_data.end_event_date)) ? (
-                            <input
-                              disabled
-                              type="text"
-                              placeholder="Jane Doe"
-                              value={name}
-                              onChange={(e) => setName(e.target.value)}
-                            />
-                          ) : (
-                            <>
-                            <p>Please enter your full name:</p>
-                            <input
-                              type="text"
-                              placeholder="Jane Doe"
-                              value={name}
-                              onChange={(e) => setName(e.target.value)}
-                            />
-                            </>
-                          )}
-                          </>
-                        ) : null}
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Voteable options */}
                   <div className="event__options">
                     <h2>Voteable Options</h2>
@@ -385,9 +351,7 @@ function Vote({ query }) {
                     ) : (
                       <>
                         {/* Submission button states */}
-                        {name !== "" ? (
-                          // Check for name being filled
-                          submitLoading ? (
+                        {submitLoading ? (
                             // Check for existing button loading state
                             <button className="submit__button" disabled>
                               <Loader />
@@ -397,13 +361,7 @@ function Vote({ query }) {
                             <button name="input-element" onClick={submitVotes} className="submit__button">
                               Submit Votes
                             </button>
-                          )
-                        ) : (
-                          // If name isn't filled, request fulfillment
-                          <button className="submit__button button__disabled" disabled>
-                            Enter your name to vote
-                          </button>
-                        )}
+                          )}
                       </>
                     )}
                     </>
@@ -478,6 +436,10 @@ function Vote({ query }) {
             height: 100vh;
             padding: 50px 2rem;
           }
+
+          .vote__loading {
+            margin: 50px auto 0px auto !important;
+          }
         }
 
         @media only screen and (min-width: 1150px) {
@@ -536,6 +498,11 @@ function Vote({ query }) {
             margin: 50px 0 50px auto;
             width: auto;
           }
+
+          .vote__loading {
+            grid-column-start: column 3;
+            grid-column-end: gutter 8;
+          }
         }
 
         .event__summary {
@@ -571,12 +538,13 @@ function Vote({ query }) {
 
         .vote__loading {
           max-width: 660px;
-          width: 100%;
+          width: calc(100% - 40px);
           border-radius: 10px;
           display: inline-block;
           margin: 50px 20px 0px 20px;
           border: 1px solid #f1f2e5;
           padding: 30px 0px;
+          position: relative;
         }
 
         .vote__loading > h1,
