@@ -67,12 +67,14 @@ function Event({ query }) {
     const fileType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
     const fileExtension = '.xlsx';
     const options = data.chart.labels
+    const descriptions = data.chart.descriptions
     const effectiveVotes = data.chart.datasets[0].data
     var rows = [];
     var i;
     for (i = 0; i < options.length; i++) {
       var option = {
         title: options[i],
+        description: descriptions[i],
         votes: effectiveVotes[i],
       }
       rows.push(option);
